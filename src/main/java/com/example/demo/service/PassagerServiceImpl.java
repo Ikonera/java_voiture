@@ -1,13 +1,14 @@
 package com.example.demo.service;
-
 import com.example.demo.models.Passager;
 import com.example.demo.repository.PassagerRepository;
-
+import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class PassagerServiceImpl implements PassagerService {
-	public final PassagerRepository pr;
+
+	private final PassagerRepository pr;
 
 	public PassagerServiceImpl(PassagerRepository pr) {
 		this.pr = pr;
@@ -15,31 +16,26 @@ public class PassagerServiceImpl implements PassagerService {
 
 	@Override
 	public Passager create(Passager passager) {
-		return this.pr.save(passager);
+		return null;
 	}
 
 	@Override
 	public Passager modify(Long id, Passager passager) {
-		return this.pr.findById(id).map(passagerToModify -> {
-			passagerToModify.setNom(passager.getNom());
-			passagerToModify.setAge(passager.getAge());
-			passagerToModify.setNumeroTelephone(passager.getNumeroTelephone());
-			return this.pr.save(passagerToModify);
-		}).orElseThrow(() -> new RuntimeException("Not found Passager."));
+		return null;
 	}
 
 	@Override
 	public List<Passager> getAll() {
-		return this.pr.findAll();
+		return null;
 	}
 
 	@Override
 	public Optional<Passager> getOneById(Long id) {
-		return this.pr.findById(id);
+		return Optional.empty();
 	}
 
 	@Override
 	public void deleteById(Long id) {
-		this.pr.deleteById(id);
+
 	}
 }

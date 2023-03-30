@@ -1,18 +1,19 @@
 package com.example.demo.controller;
-
 import com.example.demo.models.Passager;
-import com.example.demo.models.Voiture;
 import com.example.demo.service.PassagerService;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/passagers")
 public class PassagerController {
+
 	private final PassagerService ps;
-	public PassagerController(PassagerService ps) { this.ps = ps; }
+
+	public PassagerController(PassagerService ps) {
+		this.ps = ps;
+	}
 
 	@PostMapping("/create")
 	public Passager create(@RequestBody Passager passager) {

@@ -55,4 +55,8 @@ public class Voiture {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public List<Passager> getPassagers() {
+		return this.passagers;
+	}
 }
