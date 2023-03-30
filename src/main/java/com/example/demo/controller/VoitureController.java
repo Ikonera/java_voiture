@@ -1,4 +1,5 @@
 package com.example.demo.controller;
+import com.example.demo.models.Passager;
 import com.example.demo.models.Voiture;
 import com.example.demo.service.VoitureService;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +35,11 @@ public class VoitureController {
 	public List<Voiture> search(@PathVariable String keyword) {
 		if (keyword.isEmpty()) return this.vs.getAll();
 		return this.vs.findByKeyword(keyword);
+	}
+
+	@GetMapping("/getPassengers/{id}")
+	public List<Passager> getPassengers(@PathVariable Long id) {
+		return this.vs.getPassengers(id);
 	}
 
 	@PutMapping("/modify/{id}")

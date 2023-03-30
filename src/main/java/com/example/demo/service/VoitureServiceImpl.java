@@ -1,4 +1,5 @@
 package com.example.demo.service;
+import com.example.demo.models.Passager;
 import com.example.demo.models.Voiture;
 import com.example.demo.repository.VoitureRepository;
 import org.springframework.stereotype.Service;
@@ -42,6 +43,12 @@ public class VoitureServiceImpl implements VoitureService {
 	@Override
 	public List<Voiture> findByKeyword(String keyword) {
 		return this.vr.findByKeyword(keyword);
+	}
+
+	@Override
+	public List<Passager> getPassengers(Long id) {
+		Optional<Voiture> voiture = this.vr.findById(id);
+		return voiture.map(Voiture::getPassagers).orElse(null);
 	}
 
 	@Override
